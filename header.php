@@ -9,4 +9,6 @@
 
 <body <?php body_class(); ?>>
 
+<h1><?php bloginfo('title') ?></h1>
+
 
