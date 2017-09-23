@@ -12,14 +12,28 @@
 
 // navbar logo
 
+
+
 @media screen and (min-width: 48em) {
 	.custom-logo-link img {
-		max-width: 5%;
+		max-width: 3%;
 	}
 }
 
 .custom-logo-link img {
-   	display: inline-block;
-    max-height: 5%;
+    max-height: 3%;
+    width: auto;
+}
 
+
+@media screen and (max-width:800px){
+    .custom-logo-link img {
+		display: none;
+	}
+}
+
+// set the logo to the left
+
+.navbar-brand{
+    margin-left:-19.3333% !important;
 }
