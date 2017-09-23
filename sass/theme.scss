@@ -10,4 +10,16 @@
 @import "theme/theme";  // <--------- Thats where you can add your own design. Thats your part!
 @import "theme/contact-form7"; // contact form 7 - Bootatrap 4 support
 
+// navbar logo
 
+@media screen and (min-width: 48em) {
+	.custom-logo-link img {
+		max-width: 120px;
+	}
+}
+
+.custom-logo-link img {
+   	display: inline-block;
+    max-height: 120px;
+    width: auto;
+}
