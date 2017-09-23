@@ -9160,13 +9160,8 @@ a.skip-link {
 
 @media screen and (min-width: 48em) {
   .custom-logo-link img {
-    max-width: 120px; } }
+    max-width: 5%; } }
 
 .custom-logo-link img {
   display: inline-block;
-  max-height: 120px;
-  width: auto; }
-
-@media screen and (max-width: 782px) {
-  .custom-logo-link img {
-    max-width: 120px; } }
+  max-height: 5%; }
