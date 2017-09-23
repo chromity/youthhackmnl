@@ -2,8 +2,10 @@
 @import url("https://fonts.googleapis.com/css?family=Rubik");
 
 
-.site-logo {
-  max-height: 200px;
+.custom-logo-link img, body.home.title-tagline-hidden.has-header-image .custom-logo-link img,
+body.home.title-tagline-hidden.has-header-video .custom-logo-link img {
+    max-width: 20%;
+    max-height: 20%;
 }
 /*!
  * Bootstrap v4.0.0-beta (https://getbootstrap.com)
