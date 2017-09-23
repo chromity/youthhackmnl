@@ -17,11 +17,6 @@ $container   = get_theme_mod( 'understrap_container_type' );
 $sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
 ?>
 
-<?php
-  <div class="header col-md-12 container">
-    <img src="<?php echo( get_header_image() ); ?>" alt="<?php echo( get_bloginfo( 'title' ) ); ?>" />
-  </div>
- ?>
 
 
 <?php get_footer(); ?>
