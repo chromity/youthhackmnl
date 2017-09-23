@@ -9166,3 +9166,7 @@ a.skip-link {
   display: inline-block;
   max-height: 120px;
   width: auto; }
+
+@media screen and (max-width: 782px) {
+  .custom-logo-link img {
+    max-width: 120px; } }
