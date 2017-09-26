@@ -1,17 +1,26 @@
-<?php
+<?php 
 /**
- * The sidebar containing the main widget area.
+ * 	This is the sidebar!
  *
- * @package understrap
- */
-
-if ( ! is_active_sidebar( 'sidebar-1' ) ) {
-	return;
-}
+ *	This file will render the sidebar, as defined by the user in the admin area
+ *
+*/
 ?>
+			<?php if ( ! dynamic_sidebar( 'sidebar' ) ) : // If the user hasn't defined any specific widgets in the admin yet, display a couple dummy widgets, as written below ?>
+				<aside id="archives" class="widget">
+					<h3 class="side-title"><?php _e( 'Archives', 'naked' ); // Wordpress archives widget ?></h3>
+					<ul>
+						<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
+					</ul>
+				</aside>
 
-<div class="col-md-4 widget-area" id="secondary" role="complementary">
+				<aside id="meta" class="widget">
+					<h3 class="side-title"><?php _e( 'Meta', 'naked' ); // Wordpress meta widget ?></h3>
+					<ul>
+						<?php wp_register(); ?>
+						<li><?php wp_loginout(); ?></li>
+						<?php wp_meta(); ?>
+					</ul>
+				</aside>
 
-	<?php dynamic_sidebar( 'sidebar-1' ); ?>
-
-</div><!-- #secondary -->
+			<?php endif; // end sidebar widget area ?>

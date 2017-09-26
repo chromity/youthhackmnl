@@ -1,82 +1,61 @@
 <?php
-/**
- * The header for our theme.
- *
- * Displays all of the <head> section and everything up till <div id="content">
- *
- * @package understrap
- */
-
-$container = get_theme_mod( 'understrap_container_type' );
+  /**
+   * Header for YouthHack website, present in all pages.
+   *
+   * @author      Maded Batara III, Michael Daryl Mayo
+   * @version     v20170923
+   */
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
-<head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-title" content="<?php bloginfo( 'name' ); ?> - <?php bloginfo( 'description' ); ?>">
-	<link rel="profile" href="http://gmpg.org/xfn/11">
-	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-	<?php wp_head(); ?>
-</head>
+  <head>
 
-<body <?php body_class(); ?>>
+    <!-- Meta -->
+    <meta charset="<?php bloginfo('charset'); ?>" />
+    <meta name="viewport" content="width=device-width" />
+    <title>
+      <?php bloginfo('name');  ?> | <?php is_front_page() ? bloginfo('description') : wp_title(''); ?>
+    </title>
 
-<div class="hfeed site" id="page">
+    <link rel="profile" href="http://gmpg.org/xfn/11" />
 
-	<!-- ******************* The Navbar Area ******************* -->
-	<div class="wrapper-fluid wrapper-navbar" id="wrapper-navbar">
+    <!-- HTML5 Shiv -->
+    <!--[if lt IE 9]>
+    <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
+    <![endif]-->
 
-		<a class="skip-link screen-reader-text sr-only" href="#content"><?php esc_html_e( 'Skip to content',
-		'understrap' ); ?></a>
+    <?php wp_head(); ?>
 
-		<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  </head>
 
-		<?php if ( 'container' == $container ) : ?>
-			<div class="container">
-		<?php endif; ?>
+<body <?php body_class('karla'); ?>>
 
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
+  <header id="masthead" class="site-header vw-100 <?php echo is_front_page() ? "header-bg header-bg-tint cover bg-right-l white pb5 pb3-ns vw-100" : '' ?>">
 
-					<!-- Your site title as branding in the menu -->
-					<?php if ( ! has_custom_logo() ) { ?>
+    <nav class="flex items-center ph5 vh-10 justify-between">
+      <a href="http://youthhack.net" title="YouthHack Home" class="align-center mid-gray link dim">
+        <img src="<?php echo get_template_directory_uri() . '/img/yh-logo.svg' ?>" alt="YouthHack Logo" class="w2 h2">
+      </a>
+      <?php wp_nav_menu(array( 
+        'theme_location' => 'primary',
+        'menu_class' => 'dtc v-mid tr list',
+        'container' => false,
+        'walker' => new Tachyons_Walker_Nav_Menu()
+      ));?>
+    </nav>
 
-						<?php if ( is_front_page() && is_home() ) : ?>
+    <?php if (is_front_page()): ?>
+    <div class="row around-xs start-xs pt5 w-100 vh-90">
+      <div class="col-xs-9 col-sm-8">
+        <div class="box">
+          <h1 class="bg-yh-yellow black di zilla-slab f-display fw3 lh-solid measure mv0 ttu" >
+            Think. <br> Create. <br> Innovate.
+          </h1>
+        </div>
+      </div>
+    </div>
+    <?php endif; ?>
 
-							<h1 class="navbar-brand mb-0"><a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
+  </header>
 
-						<?php else : ?>
-
-							<a class="navbar-brand" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
-
-						<?php endif; ?>
-
-
-					<?php } else {
-						the_custom_logo();
-					} ?><!-- end custom logo -->
-
-				<!-- The WordPress Menu goes here -->
-				<?php wp_nav_menu(
-					array(
-						'theme_location'  => 'primary',
-						'container_class' => 'collapse navbar-collapse',
-						'container_id'    => 'navbarNavDropdown',
-						'menu_class'      => 'navbar-nav',
-						'fallback_cb'     => '',
-						'menu_id'         => 'main-menu',
-						'walker'          => new WP_Bootstrap_Navwalker(),
-					)
-				); ?>
-			<?php if ( 'container' == $container ) : ?>
-			</div><!-- .container -->
-			<?php endif; ?>
-
-		</nav><!-- .site-navigation -->
-
-	</div><!-- .wrapper-navbar end -->
+  <main class="main-fluid">
